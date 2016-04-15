@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   has_many :activity_logs
   has_many :project_files
   has_many :projects
+  belongs_to :bid
 end
