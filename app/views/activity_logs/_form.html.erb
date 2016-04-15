@@ -1,13 +1,16 @@
-<%= simple_form_for(@activity_log) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.association :user %>
-    <%= f.input :action %>
-    <%= f.association :project_file %>
+<%= form_for @activity_log, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :action, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :action, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  activity_logs_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

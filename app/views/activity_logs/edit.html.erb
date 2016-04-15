@@ -1,6 +1,5 @@
-<h1>Editing activity_log</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @activity_log %> |
-<%= link_to 'Back', activity_logs_path %>
+<%- model_class = ActivityLog -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => ActivityLog %></h1>
+</div>
+<%= render :partial => 'form' %>
