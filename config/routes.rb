@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :bids
+
   resources :project_files
 
   resources :activity_logs
