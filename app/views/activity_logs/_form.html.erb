@@ -1,0 +1,13 @@
+<%= simple_form_for(@activity_log) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.input :action %>
+    <%= f.association :project_file %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
