@@ -1,31 +1,38 @@
-<h1>Listing project_files</h1>
-
-<table>
+<%- model_class = ProjectFile -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => ProjectFile %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Folder</th>
-      <th>Project</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:folder) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @project_files.each do |project_file| %>
       <tr>
+        <td><%= project_file.id %></td>
         <td><%= project_file.name %></td>
         <td><%= project_file.folder %></td>
-        <td><%= project_file.project %></td>
-        <td><%= project_file.user %></td>
-        <td><%= link_to 'Show', project_file %></td>
-        <td><%= link_to 'Edit', edit_project_file_path(project_file) %></td>
-        <td><%= link_to 'Destroy', project_file, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l project_file.created_at, format: :long %></td>
+        <td>
+          <%= link_to project_file_path(project_file), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to project_file_path(project_file), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Project file', new_project_file_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_project_file_path,
+            :class => 'btn btn-primary' %>

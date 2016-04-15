@@ -1,6 +1,5 @@
-<h1>Editing project_file</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @project_file %> |
-<%= link_to 'Back', project_files_path %>
+<%- model_class = ProjectFile -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => ProjectFile %></h1>
+</div>
+<%= render :partial => 'form' %>
