@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   belongs_to :bid
   validates_formatting_of :phone_number, using: :us_phone
   validates_formatting_of :fax_number, using: :us_phone
+  validates_formatting_of :cell_number, using: :us_phone
 end
