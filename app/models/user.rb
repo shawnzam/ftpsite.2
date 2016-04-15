@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   has_many :projects
   belongs_to :bid
   validates_formatting_of :phone_number, using: :us_phone
+  validates_formatting_of :fax_number, using: :us_phone
 end
